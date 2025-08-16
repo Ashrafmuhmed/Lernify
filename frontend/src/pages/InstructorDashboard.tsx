@@ -5,14 +5,14 @@ import CreateCourseForm from "../components/CreateCourseForm"
 import { FaBook, FaUserGraduate, FaBox } from "react-icons/fa"
 
 export default function InstructorDashboard() {
-  // Temporary placeholders to avoid errors
+  // Temporary placeholders
   const notificationCount = 0
   const performanceData = { growth: "12%", comparison: "↑ 5% vs last month" }
   const activity = { timeAgo: "2h ago", message: "New student enrolled" }
 
   return (
     <div className="flex">
-      {/* Sidebar - now positioned on the left */}
+      {/* Sidebar */}
       <Sidebar />
 
       {/* Main Content */}
@@ -40,8 +40,6 @@ export default function InstructorDashboard() {
                     Your teaching dashboard is ready. Manage courses, track student progress, and create engaging
                     content.
                   </p>
-
-                  </div>
                 </div>
               </div>
             </div>
@@ -125,12 +123,15 @@ export default function InstructorDashboard() {
                   <span className="text-sm text-gray-500">Last 7 days</span>
                 </div>
                 <div className="space-y-4">
-
                   <div className="flex items-center space-x-4 p-3 bg-green-50 rounded-xl border-l-4 border-green-400">
                     <div className="bg-green-100 p-2 rounded-lg">
                       <span className="text-green-600">🎓</span>
                     </div>
                     <div className="flex-1">
+                      <p className="font-semibold text-gray-800">New student enrolled</p>
+                      <p className="text-sm text-gray-600">2h ago</p>
+                    </div>
+                  </div>
 
                   <div className="flex items-center space-x-4 p-3 bg-blue-50 rounded-xl border-l-4 border-blue-400">
                     <div className="bg-blue-100 p-2 rounded-lg">
@@ -150,7 +151,12 @@ export default function InstructorDashboard() {
                 <h3 className="text-lg font-bold mb-4">This Month's Highlights</h3>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4">
-
+                    <p className="text-sm">Growth</p>
+                    <p className="text-2xl font-bold">{performanceData.growth}</p>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4">
+                    <p className="text-sm">Comparison</p>
+                    <p className="text-2xl font-bold">{performanceData.comparison}</p>
                   </div>
                 </div>
               </div>

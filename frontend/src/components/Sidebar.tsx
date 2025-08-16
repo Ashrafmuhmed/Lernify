@@ -1,3 +1,15 @@
+import { Link } from "react-router-dom"
+
+export default function Sidebar() {
+  const menuItems = [
+    { name: "Dashboard", path: "/", icon: "📊", isActive: true },
+    { name: "Courses", path: "/course-catalog", icon: "📚", isActive: false },
+    { name: "Students", path: "/students", icon: "👩‍🎓", isActive: false },
+    { name: "View Lessons", path: "/lesson-viewer", icon: "👁️‍🗨️", isActive: false },
+    { name: "Assignments", path: "/assignments", icon: "📝", isActive: false },
+    { name: "Settings", path: "/settings", icon: "⚙️", isActive: false },
+    { name: "Support", path: "/support", icon: "💬", isActive: false },
+  ]
 
   return (
     <aside className="w-72 min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden shadow-2xl">
@@ -52,7 +64,8 @@
             <Link
               key={index}
               to={item.path}
-
+              className={`group flex items-center space-x-4 p-3 rounded-xl transition-all duration-300 ${
+                item.isActive
                   ? "bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 text-green-300"
                   : "hover:bg-white/5 hover:border-white/10 border border-transparent text-slate-300"
               }`}
