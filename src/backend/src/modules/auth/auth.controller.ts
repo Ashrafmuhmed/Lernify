@@ -5,21 +5,16 @@ import { LoginDataDto } from './Dto/loginData.dto';
 import { UserEntity } from '../user/user.entity';
 
 @Controller('auth')
-
 export class AuthController {
+  constructor(private readonly authService: AuthService) {}
 
-    constructor( private readonly authService:AuthService){}
+  @Post('register')
+  async regitster(@Body() data: CreateUserDto): Promise<UserEntity | string> {
+    return await this.authService.register(data);
+  }
 
-    @Post('register')
-    regitster(@Body() data:CreateUserDto ):UserEntity|string{
-        return this.authService.register(data) ; 
-    }
-
-    @Post('login')
-    login( @Body() data:LoginDataDto ){
-        return this.authService.login(data) ; 
-    }
-
-
-
+  @Post('login')
+  login(@Body() data: LoginDataDto) {
+    return this.authService.login(data);
+  }
 }
